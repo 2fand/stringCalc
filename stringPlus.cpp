@@ -11,7 +11,7 @@ string stringPlus::calc(string str, string stra) {//计算
 	auto ita = stra.crbegin();
 	int digitNum = 0;
 	while (!itaIsZero || !itIsZero) {
-		digitNum = (itIsZero ? 0 : *it++) + (itaIsZero ? 0 : *ita++) + isAddOne;
+		digitNum = (itIsZero ? 0 : *it++ - '0') + (itaIsZero ? 0 : *ita++ - '0') + isAddOne;
 		isAddOne = digitNum / 10;
 		digitNum %= 10;
 		this->last.insert(this->last.begin(), '0' + digitNum);

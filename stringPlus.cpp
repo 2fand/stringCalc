@@ -31,7 +31,7 @@ string stringPlus::calc(string str, string stra) {//计算
 		}
 		ix = (1 - 2 * strIsNegative) * (itIsZero ? 0 : *it++ - '0');
 		iy = (1 - 2 * straIsNegative) * (itaIsZero ? 0 : *ita++ - '0');
-		digitNum = ix + iy;
+		digitNum = (tenSub && abs(ix) < abs(iy)) ? 10 + abs(ix) - abs(iy) : ix + iy;
 		digitNum += !(0 > addNum && 2 == itIsZero + itaIsZero) * (1 - 2 * (digitNum < 0)) * addNum;
 		addNum = tenSub && abs(ix) < abs(iy) ? -1 : digitNum / 10;
 		digitNum = abs(digitNum % 10);

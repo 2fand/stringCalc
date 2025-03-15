@@ -1,5 +1,5 @@
 #include "stringSub.h"
-string stringSub::calc(string str, string stra) {
+string stringSub::calc(string str, string stra) {//计算
 	this->last.clear();
 	int addNum = 0;
 	int ix = 0;

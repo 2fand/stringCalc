@@ -4,5 +4,5 @@
 using namespace std;
 class stringSub : public stringPlus {
 public:
-	string calc(string str, string stra);
+	string calc(string str, string stra);//计算
 };

@@ -1,4 +1,5 @@
 #include "stringPlus.h"
+#include <cmath>
 string stringPlus::getLast() {//获取上次计算得到的结果
 	return this->last;
 }

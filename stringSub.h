@@ -2,7 +2,10 @@
 #include "stringPlus.h"
 #include <iostream>
 using namespace std;
-class stringSub : public stringPlus {
+class stringSub{
+private:
+	string last;//上次计算的结果
 public:
-	string calc(string str, string stra);//计算
+	string getLast();//获取上次计算的结果
+	string sub(string str, string stra);//计算
 };

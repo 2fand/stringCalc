@@ -1,4 +1,7 @@
 #include "stringSub.h"
+string stringSub::getLast() {
+	return this->last;
+}
 string stringSub::calc(string str, string stra) {//计算
 	this->last.clear();
 	int addNum = 0;

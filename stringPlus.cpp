@@ -13,7 +13,9 @@ string stringPlus::calc(string str, string stra) {//计算
 	bool strIsNegative = (str.size() ? '-' == str.front() : false);
 	bool straIsNegative = (stra.size() ? '-' == stra.front() : false);
 	bool tenSub = 1 == strIsNegative + straIsNegative;
-	bool isNegative = '-' == (abs(atoi(str.c_str())) > abs(atoi(stra.c_str())) ? str.front() : stra.front());
+	int absStr = abs(atoi(str.c_str()));
+	int absStra = abs(atoi(stra.c_str()));
+	bool isNegative = '-' == (absStr > absStra ? str.front() : absStr == absStra ? false : stra.front());;
 	int id = 0;
 	int toDel = 0;
 	string tempstr;
@@ -57,7 +59,7 @@ string stringPlus::calc(string str, string stra) {//计算
 	while ('-' == this->last[id] && id < this->last.size()) {
 		id++;
 	}
-	while (id < this->last.size() && '0' == this->last[id]) {
+	while (id < this->last.size() - 1 && '0' == this->last[id]) {
 		toDel = 0;
 		while (toDel < this->last.size()) {
 			if (toDel == id && ++toDel) {

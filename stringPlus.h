@@ -3,8 +3,8 @@
 using namespace std;
 class stringPlus {
 private:
-	string last;//上次计算得到的结果
+	string last;//上次加法计算得到的结果
 public:
-	string getLast();//获取上次计算得到的结果
-	string calc(string str, string stra);//计算
+	string getLast();//获取上次加法计算得到的结果
+	string add(string str, string stra);//加法计算
 };

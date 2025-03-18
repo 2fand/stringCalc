@@ -1,21 +1,13 @@
 #include "stringPlus.h"
 #include <cmath>
-string stringPlus::getLast() {//获取上次计算得到的结果
+string stringPlus::getLast() {//获取上次加法计算得到的结果
 	return this->last;
 }
-string stringPlus::calc(string str, string stra) {//计算
+string stringPlus::add(string str, string stra) {//加法计算
 	this->last.clear();
 	int addNum = 0;
 	int ix = 0;
 	int iy = 0;
-	bool itIsZero = !str.size();
-	bool itaIsZero = !stra.size();
-	bool strIsNegative = (str.size() ? '-' == str.front() : false);
-	bool straIsNegative = (stra.size() ? '-' == stra.front() : false);
-	bool tenSub = 1 == strIsNegative + straIsNegative;
-	int absStr = abs(atoi(str.c_str()));
-	int absStra = abs(atoi(stra.c_str()));
-	bool isNegative = '-' == (absStr > absStra ? str.front() : absStr == absStra ? false : stra.front());;
 	int id = 0;
 	int toDel = 0;
 	string tempstr;
@@ -30,6 +22,14 @@ string stringPlus::calc(string str, string stra) {//计算
 	if (abs(atoi(stra.c_str())) > abs(atoi(str.c_str()))) {
 		str.swap(stra);
 	}
+	bool itIsZero = !str.size();
+	bool itaIsZero = !stra.size();
+	bool strIsNegative = (str.size() ? '-' == str.front() : false);
+	bool straIsNegative = (stra.size() ? '-' == stra.front() : false);
+	bool tenSub = 1 == strIsNegative + straIsNegative;
+	int absStr = abs(atoi(str.c_str()));
+	int absStra = abs(atoi(stra.c_str()));
+	bool isNegative = '-' == (absStr > absStra ? str.front() : absStr == absStra ? false : stra.front());
 	auto it = str.crbegin();
 	auto ita = stra.crbegin();
 	int digitNum = 0;

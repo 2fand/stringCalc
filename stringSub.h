@@ -3,9 +3,9 @@
 #include <iostream>
 using namespace std;
 class stringSub{
-private:
-	string last;//上次计算的结果
+protected:
+	string last;//上次减法计算的结果
 public:
-	string getLast();//获取上次计算的结果
-	string sub(string str, string stra);//计算
+	virtual string getLast();//获取上次减法计算的结果
+	virtual string sub(string str, string stra);//减法计算
 };

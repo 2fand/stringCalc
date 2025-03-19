@@ -46,7 +46,7 @@ string stringPlus::add(string str, string stra) {//加法计算
 		digitNum += !(0 > addNum && 2 == itIsZero + itaIsZero) * (1 - 2 * (digitNum < 0)) * addNum;
 		addNum = tenSub && abs(ix) < abs(iy) ? -1 : digitNum / 10;
 		digitNum = abs(digitNum % 10);
-		if (!itIsZero || !itaIsZero || addNum) {
+		if (!itIsZero || !itaIsZero || addNum || digitNum) {
 			this->last.insert(this->last.begin(), '0' + digitNum);
 		}
 	}

@@ -1,5 +1,5 @@
 #include "stringTim.h"
-string stringTim::tim(string str, string stra) {
+string stringTim::tim(string str, string stra) {//乘法计算
 	string timStr = "0";
 	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
 		if (index < str.size() && '-' != str[index] && ('0' > str[index] || '9' < str[index])) {

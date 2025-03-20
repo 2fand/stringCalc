@@ -7,14 +7,6 @@ string stringSub::sub(string str, string stra) {//减法计算
 	int addNum = 0;
 	int ix = 0;
 	int iy = 0;
-	bool itIsZero = !str.size();
-	bool itaIsZero = !stra.size();
-	bool strIsNegative = (str.size() ? '-' == str.front() : false);
-	bool straIsNegative = !(stra.size() ? '-' == stra.front() : false);
-	bool tenSub = 1 == strIsNegative + straIsNegative;
-	int absStr = abs(atoi(str.c_str()));
-	int absStra = abs(atoi(stra.c_str()));
-	bool isNegative = '-' == (absStr > absStra ? str.front() : absStr == absStra ? false : stra.front());
 	int id = 0;
 	int toDel = 0;
 	string tempstr;
@@ -26,11 +18,28 @@ string stringSub::sub(string str, string stra) {//减法计算
 			stra.erase(index);
 		}
 	}
+	if ('-' != stra.front()) {
+		stra.insert(0, "-");
+	}
+	else {
+		for (int i = 0; i < stra.size() - 1; i++) {
+			stra[i] = stra[i + 1];
+		}
+		stra.pop_back();
+	}
 	if (abs(atoi(stra.c_str())) > abs(atoi(str.c_str()))) {
 		str.swap(stra);
 	}
 	auto it = str.crbegin();
 	auto ita = stra.crbegin();
+	bool itIsZero = !str.size();
+	bool itaIsZero = !stra.size();
+	bool strIsNegative = (str.size() ? '-' == str.front() : false);
+	bool straIsNegative = (stra.size() ? '-' == stra.front() : false);
+	bool tenSub = 1 == strIsNegative + straIsNegative;
+	int absStr = abs(atoi(str.c_str()));
+	int absStra = abs(atoi(stra.c_str()));
+	bool isNegative = '-' == (absStr > absStra ? str.front() : absStr == absStra ? false : stra.front());
 	int digitNum = 0;
 	while (!itaIsZero || !itIsZero || addNum) {
 		if (str.crend() == it || '0' > *it || '9' < *it) {

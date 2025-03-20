@@ -9,13 +9,19 @@ string stringTim::tim(string str, string stra) {//乘法计算
 			stra.erase(index);
 		}
 	}
-	bool isNegative = '-' == stra.front() && atoi(stra.c_str());
+	bool isNegative = 1 == ('-' == str.front()) + ('-' == stra.front()) && (atoi(str.c_str()) && atoi(stra.c_str()));
 	int i = abs(atoi(stra.c_str()));
 	for (; i; i--) {
 		timStr = add(timStr, str);
 	}
 	if (isNegative) {
 		timStr.insert(0, "-");
+		if ('-' == timStr[0] && '-' == timStr[1]) {
+			for (int i = 0; i < timStr.size() - 2; i++) {
+				timStr[i] = timStr[i + 2];
+			}
+			timStr.erase(timStr.size() - 2);
+		}
 	}
 	this->last = timStr;
 	return timStr;

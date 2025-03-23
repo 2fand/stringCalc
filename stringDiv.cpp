@@ -1,5 +1,5 @@
 #include "stringDiv.h"
-string stringDiv::div(string str, string stra) {
+string stringDiv::div(string str, string stra) {//整数除法计算
 	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
 		if (index < str.size() && '-' != str[index] && ('0' > str[index] || '9' < str[index])) {
 			str.erase(index);

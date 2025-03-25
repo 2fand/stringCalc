@@ -11,6 +11,9 @@ string stringDiv::div(string str, string stra) {//整数除法计算
 	bool isNegative = (1 == ('-' == str.front()) + ('-' == stra.front()));
 	'-' == str.front() ? str = sub("0", str) : "";
 	'-' == stra.front() ? stra = sub("0", stra) : "";
+	if ("0" == stra) {
+		exit(1);
+	}
 	string divStr = "0";
 	while (atoi(sub(str, stra).c_str()) >= 0) {
 		str = sub(str, stra);
@@ -34,6 +37,9 @@ string stringDiv::divAssign(string& str, string stra) {//整数除等计算
 	bool isNegative = (1 == ('-' == str.front()) + ('-' == stra.front()));
 	'-' == str.front() ? str = sub("0", str) : "";
 	'-' == stra.front() ? stra = sub("0", stra) : "";
+	if ("0" == stra) {
+		exit(1);
+	}
 	string divStr = "0";
 	while (atoi(sub(str, stra).c_str()) >= 0) {
 		str = sub(str, stra);

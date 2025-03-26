@@ -1,5 +1,5 @@
 #include "stringMod.h"
-string stringMod::mod(string str, string stra) {
+string stringMod::mod(string str, string stra) {//æ¨¡è®¡ç®—
 	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
 		if (index < str.size() && '-' != str[index] && ('0' > str[index] || '9' < str[index])) {
 			str.erase(index);
@@ -12,7 +12,7 @@ string stringMod::mod(string str, string stra) {
 	str = (('-' == str.front()) ? sub("0", str) : str);
 	stra = (('-' == stra.front()) ? sub("0", stra) : stra);
 	if ("0" == stra) {
-		cout << "´íÎó£º²»ÄÜ³ýÒÔ0" << endl;
+		cout << "é”™è¯¯ï¼šä¸èƒ½é™¤ä»¥0" << endl;
 		exit(1);
 	}
 	while (atoi(sub(str, stra).c_str()) >= 0) {
@@ -24,7 +24,7 @@ string stringMod::mod(string str, string stra) {
 	this->last = str;
 	return str;
 }
-string stringMod::modAssign(string& str, string stra) {
+string stringMod::modAssign(string& str, string stra) {//æ¨¡ç­‰è®¡ç®—
 	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
 		if (index < str.size() && '-' != str[index] && ('0' > str[index] || '9' < str[index])) {
 			str.erase(index);
@@ -37,7 +37,7 @@ string stringMod::modAssign(string& str, string stra) {
 	str = (('-' == str.front()) ? sub("0", str) : str);
 	stra = (('-' == stra.front()) ? sub("0", stra) : stra);
 	if ("0" == stra) {
-		cout << "´íÎó£º²»ÄÜ³ýÒÔ0" << endl;
+		cout << "é”™è¯¯ï¼šä¸èƒ½é™¤ä»¥0" << endl;
 		exit(1);
 	}
 	while (atoi(sub(str, stra).c_str()) >= 0) {

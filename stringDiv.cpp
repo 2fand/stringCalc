@@ -12,6 +12,7 @@ string stringDiv::div(string str, string stra) {//整数除法计算
 	'-' == str.front() ? str = sub("0", str) : "";
 	'-' == stra.front() ? stra = sub("0", stra) : "";
 	if ("0" == stra) {
+		cout << "错误：不能除以0" << endl;
 		exit(1);
 	}
 	string divStr = "0";
@@ -38,6 +39,7 @@ string stringDiv::divAssign(string& str, string stra) {//整数除等计算
 	'-' == str.front() ? str = sub("0", str) : "";
 	'-' == stra.front() ? stra = sub("0", stra) : "";
 	if ("0" == stra) {
+		cout << "错误：不能除以0" << endl;
 		exit(1);
 	}
 	string divStr = "0";

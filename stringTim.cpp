@@ -53,3 +53,6 @@ string stringTim::timAssign(string& str, string stra) {//整数乘等计算
 	str = this->last = timStr;
 	return timStr;
 }
+string stringTim::getLast() {//获取上次整数乘法运算的结果
+	return this->last;
+}

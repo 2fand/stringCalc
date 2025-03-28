@@ -1,8 +1,11 @@
 #pragma once
 #include "stringSub.h"
-class stringDiv : public stringSub {
+class stringDiv : protected stringSub {
 public:
+	virtual string getLast();//获取上次除法计算出的结果
 	virtual string div(string str, string stra);//整数除法计算
 	virtual string divAssign(string& str, string stra);//整数除等计算
+	virtual string div(string str, string stra, bool isUp);//整数除法向上/下取整计算
+	virtual string divAssign(string& str, string stra, bool isUp);//整数除等向上/下取整计算
 };
 

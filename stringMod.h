@@ -1,6 +1,7 @@
 #pragma once
 #include "stringSub.h"
-class stringMod : public stringSub {
+class stringMod : protected stringTim, protected stringDiv  {
+	string last;
 public:
 	string getLast();//获取上次模运算之后的结果
 	string mod(string str, string stra);//模计算

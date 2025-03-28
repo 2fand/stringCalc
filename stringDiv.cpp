@@ -53,6 +53,9 @@ string stringDiv::divAssign(string& str, string stra) {//整数除等计算
 	str = this->last = divStr;
 	return divStr;
 }
+string stringDiv::getLast() {//获取上次除法计算出的结果
+	return this->last;
+}
 string stringDiv::div(string str, string stra, bool isUp){//整数除法向上/下取整计算
 	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
 		if (index < str.size() && '-' != str[index] && ('0' > str[index] || '9' < str[index])) {

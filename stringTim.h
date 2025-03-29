@@ -1,6 +1,7 @@
 #pragma once
 #include "stringPlus.h"
-class stringTim : protected stringPlus {
+#include "stringSub.h
+class stringTim : protected stringPlus, protected stringSub {
 protected:
 	string last;//上次乘法计算的结果
 public:

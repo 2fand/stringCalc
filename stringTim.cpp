@@ -11,17 +11,12 @@ string stringTim::tim(string str, string stra) {//整数乘法计算
 	}
 	bool isNegative = 1 == ('-' == str.front()) + ('-' == stra.front()) && (atoi(str.c_str()) && atoi(stra.c_str()));
 	int i = abs(atoi(stra.c_str()));
+	'-' == str.front() ? str = sub("0", str) : "";
 	for (; i; i--) {
 		timStr = add(timStr, str);
 	}
 	if (isNegative) {
 		timStr.insert(0, "-");
-		if ('-' == timStr[0] && '-' == timStr[1]) {
-			for (int i = 0; i < timStr.size() - 2; i++) {
-				timStr[i] = timStr[i + 2];
-			}
-			timStr.erase(timStr.size() - 2);
-		}
 	}
 	this->last = timStr;
 	return timStr;
@@ -38,17 +33,12 @@ string stringTim::timAssign(string& str, string stra) {//整数乘等计算
 	}
 	bool isNegative = 1 == ('-' == str.front()) + ('-' == stra.front()) && (atoi(str.c_str()) && atoi(stra.c_str()));
 	int i = abs(atoi(stra.c_str()));
+	'-' == str.front() ? str = sub("0", str) : "";
 	for (; i; i--) {
 		timStr = add(timStr, str);
 	}
 	if (isNegative) {
 		timStr.insert(0, "-");
-		if ('-' == timStr[0] && '-' == timStr[1]) {
-			for (int i = 0; i < timStr.size() - 2; i++) {
-				timStr[i] = timStr[i + 2];
-			}
-			timStr.erase(timStr.size() - 2);
-		}
 	}
 	str = this->last = timStr;
 	return timStr;

@@ -1,6 +1,6 @@
 #pragma once
-#include "stringSub.h"
-class stringDiv : protected stringSub {
+#include "stringTim.h"
+class stringDiv : protected stringTim {
 protected:
 	string last;//除法计算的结果
 public:

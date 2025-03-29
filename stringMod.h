@@ -1,6 +1,6 @@
 #pragma once
 #include "stringSub.h"
-class stringMod : protected stringTim, protected stringDiv  {
+class stringMod : protected stringDiv  {
 	string last;
 public:
 	string getLast();//获取上次模运算之后的结果

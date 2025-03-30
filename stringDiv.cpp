@@ -8,6 +8,12 @@ string stringDiv::div(string str, string stra) {//整数除法计算
 			stra.erase(index);
 		}
 	}
+	if (!str.size()) {
+		str = "0";
+	}
+	if (!stra.size()) {
+		stra = "0";
+	}
 	bool isNegative = (1 == ('-' == str.front()) + ('-' == stra.front()));
 	'-' == str.front() ? str = sub("0", str) : "";
 	'-' == stra.front() ? stra = sub("0", stra) : "";
@@ -34,6 +40,12 @@ string stringDiv::divAssign(string& str, string stra) {//整数除等计算
 		if (index < stra.size() && '-' != stra[index] && ('0' > stra[index] || '9' < stra[index])) {
 			stra.erase(index);
 		}
+	}
+	if (!str.size()) {
+		str = "0";
+	}
+	if (!stra.size()) {
+		stra = "0";
 	}
 	bool isNegative = (1 == ('-' == str.front()) + ('-' == stra.front()));
 	'-' == str.front() ? str = sub("0", str) : "";
@@ -65,6 +77,12 @@ string stringDiv::div(string str, string stra, bool isUp){//整数除法向上/�
 			stra.erase(index);
 		}
 	}
+	if (!str.size()) {
+		str = "0";
+	}
+	if (!stra.size()) {
+		stra = "0";
+	}
 	bool isNegative = (1 == ('-' == str.front()) + ('-' == stra.front()));
 	'-' == str.front() ? str = sub("0", str) : "";
 	'-' == stra.front() ? stra = sub("0", stra) : "";
@@ -92,6 +110,12 @@ string stringDiv::divAssign(string& str, string stra, bool isUp) {//整数除等
 		if (index < stra.size() && '-' != stra[index] && ('0' > stra[index] || '9' < stra[index])) {
 			stra.erase(index);
 		}
+	}
+	if (!str.size()) {
+		str = "0";
+	}
+	if (!stra.size()) {
+		stra = "0";
 	}
 	bool isNegative = (1 == ('-' == str.front()) + ('-' == stra.front()));
 	'-' == str.front() ? str = sub("0", str) : "";

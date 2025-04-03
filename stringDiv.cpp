@@ -26,7 +26,7 @@ string stringDiv::div(string str, string stra) {//整数除法计算
 		str = sub(str, stra);
 		divStr = sub(divStr, "-1");
 	}
-	if (isNegative) {
+	if (isNegative && "0" != divStr) {
 		divStr.insert(0, "-");
 	}
 	this->last = divStr;
@@ -59,7 +59,7 @@ string stringDiv::divAssign(string& str, string stra) {//整数除等计算
 		str = sub(str, stra);
 		divStr = sub(divStr, "-1");
 	}
-	if (isNegative) {
+	if (isNegative && "0" != divStr) {
 		divStr.insert(0, "-");
 	}
 	str = this->last = divStr;

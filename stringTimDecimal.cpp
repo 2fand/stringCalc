@@ -1,8 +1,8 @@
 #include "stringTimDecimal.h"
-string stringTimDecimal::getLast() {
+string stringTimDecimal::getLast() {//获取上次小数乘法计算的结果
 	return this->last;
 }
-string stringTimDecimal::timDecimal(string str, string stra) {
+string stringTimDecimal::timDecimal(string str, string stra) {//小数乘法计算
 	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
 		if (index < str.size() && '-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index])) {
 			str.erase(index);
@@ -44,7 +44,7 @@ string stringTimDecimal::timDecimal(string str, string stra) {
 	}
 	return this->last = timStr;
 }
-string stringTimDecimal::timDecimalAssign(string& str, string stra) {
+string stringTimDecimal::timDecimalAssign(string& str, string stra) {//小数乘等计算
 	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
 		if (index < str.size() && '-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index])) {
 			str.erase(index);

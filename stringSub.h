@@ -2,7 +2,7 @@
 #include "stringPlus.h"
 #include <iostream>
 using namespace std;
-class stringSub{
+class stringSub {//整数减法类
 protected:
 	string last;//上次整数减法计算的结果
 public:

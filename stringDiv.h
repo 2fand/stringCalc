@@ -1,6 +1,6 @@
 #pragma once
 #include "stringTim.h"
-class stringDiv : protected stringTim {
+class stringDiv : protected stringTim {//整数除法计算类
 protected:
 	string last;//除法计算的结果
 public:

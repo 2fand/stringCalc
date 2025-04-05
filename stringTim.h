@@ -1,7 +1,7 @@
 #pragma once
 #include "stringPlus.h"
 #include "stringSub.h
-class stringTim : protected stringPlus, protected stringSub {//整数乘法类
+class stringTim : protected stringPlus, protected stringSub {//整数乘法计算类
 protected:
 	string last;//上次乘法计算的结果
 public:

@@ -15,6 +15,9 @@ string stringTim::tim(string str, string stra) {//整数乘法计算
 	if (!stra.size()) {
 		stra = "0";
 	}
+	if (abs(atoi(str.c_str())) < abs(atoi(stra.c_str()))) {
+		str.swap(stra);
+	}
 	bool isNegative = 1 == ('-' == str.front()) + ('-' == stra.front()) && (atoi(str.c_str()) && atoi(stra.c_str()));
 	int i = abs(atoi(stra.c_str()));
 	'-' == str.front() ? str = sub("0", str) : "";
@@ -42,6 +45,9 @@ string stringTim::timAssign(string& str, string stra) {//整数乘等计算
 	}
 	if (!stra.size()) {
 		stra = "0";
+	}
+	if (abs(atoi(str.c_str())) < abs(atoi(stra.c_str()))) {
+		str.swap(stra);
 	}
 	bool isNegative = 1 == ('-' == str.front()) + ('-' == stra.front()) && (atoi(str.c_str()) && atoi(stra.c_str()));
 	int i = abs(atoi(stra.c_str()));

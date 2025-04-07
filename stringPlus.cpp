@@ -8,9 +8,6 @@ string stringPlus::add(string str, string stra) {//整数加法计算
 	int addNum = 0;
 	int ix = 0;
 	int iy = 0;
-	int id = 0;
-	int toDel = 0;
-	string tempstr;
 	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
 		if (index < str.size() && '-' != str[index] && ('0' > str[index] || '9' < str[index])) {
 			str.erase(index);
@@ -33,6 +30,7 @@ string stringPlus::add(string str, string stra) {//整数加法计算
 	auto it = str.crbegin();
 	auto ita = stra.crbegin();
 	int digitNum = 0;
+	regex delRegex("^0+");
 	while (!itaIsZero || !itIsZero || addNum) {
 		if (str.crend() == it || '0' > *it || '9' < *it) {
 			itIsZero = true;
@@ -50,24 +48,12 @@ string stringPlus::add(string str, string stra) {//整数加法计算
 			this->last.insert(this->last.begin(), '0' + digitNum);
 		}
 	}
+	this->last = regex_replace(this->last, delRegex, "");
 	if (this->last.empty()) {
 		this->last.push_back('0');
 	}
 	else if (isNegative) {
 		this->last.insert(this->last.begin(), '-');
-	}
-	while ('-' == this->last[id] && id < this->last.size()) {
-		id++;
-	}
-	while (id < this->last.size() - 1 && '0' == this->last[id]) {
-		toDel = 0;
-		while (toDel < this->last.size()) {
-			if (toDel == id && ++toDel) {
-				continue;
-			}
-			tempstr.push_back(this->last[toDel++]);
-		}
-		this->last = tempstr;
 	}
 	return this->last;
 }
@@ -76,9 +62,6 @@ string stringPlus::addAssign(string& str, string stra) {//整数加等计算
 	int addNum = 0;
 	int ix = 0;
 	int iy = 0;
-	int id = 0;
-	int toDel = 0;
-	string tempstr;
 	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
 		if (index < str.size() && '-' != str[index] && ('0' > str[index] || '9' < str[index])) {
 			str.erase(index);
@@ -101,6 +84,7 @@ string stringPlus::addAssign(string& str, string stra) {//整数加等计算
 	auto it = str.crbegin();
 	auto ita = stra.crbegin();
 	int digitNum = 0;
+	regex delRegex("^0+");
 	while (!itaIsZero || !itIsZero || addNum) {
 		if (str.crend() == it || '0' > *it || '9' < *it) {
 			itIsZero = true;
@@ -118,24 +102,12 @@ string stringPlus::addAssign(string& str, string stra) {//整数加等计算
 			this->last.insert(this->last.begin(), '0' + digitNum);
 		}
 	}
+	this->last = regex_replace(this->last, delRegex, "");
 	if (this->last.empty()) {
 		this->last.push_back('0');
 	}
 	else if (isNegative) {
 		this->last.insert(this->last.begin(), '-');
-	}
-	while ('-' == this->last[id] && id < this->last.size()) {
-		id++;
-	}
-	while (id < this->last.size() - 1 && '0' == this->last[id]) {
-		toDel = 0;
-		while (toDel < this->last.size()) {
-			if (toDel == id && ++toDel) {
-				continue;
-			}
-			tempstr.push_back(this->last[toDel++]);
-		}
-		this->last = tempstr;
 	}
 	return str = this->last;
 }

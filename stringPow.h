@@ -1,6 +1,7 @@
 #pragma once
 #include "stringDiv.h"
 class stringPow : protected stringDiv {//整数次方计算类
+protected:
 	string last;//上次次方计算后的值
 public:
 	string getLast();//获取上次次方计算后的值

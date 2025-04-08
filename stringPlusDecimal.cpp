@@ -1,8 +1,8 @@
 #include "stringPlusDecimal.h"
-string stringPlusDecimal::getLast() {
+string stringPlusDecimal::getLast() {//获取上次小数加法计算的结果
 	return this->last;
 }
-string stringPlusDecimal::addDecimal(string str, string stra) {
+string stringPlusDecimal::addDecimal(string str, string stra) {//小数加法计算
 	regex dotRegex("\\.");
 	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
 		if (index < str.size() && '-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index])) {
@@ -31,7 +31,7 @@ string stringPlusDecimal::addDecimal(string str, string stra) {
 	timStr.insert(1, ".");
 	return addStr = timDecimal(addStr, timStr);
 }
-string stringPlusDecimal::addDecimalAssign(string& str, string stra) {
+string stringPlusDecimal::addDecimalAssign(string& str, string stra) {//小数加等计算
 	regex dotRegex("\\.");
 	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
 		if (index < str.size() && '-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index])) {

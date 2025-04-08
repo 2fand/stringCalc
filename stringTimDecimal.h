@@ -1,6 +1,7 @@
 #pragma once
 #include "stringTim.h"
 class stringTimDecimal : protected stringTim{//小数乘法类
+protected:
 	string last;
 public:
 	virtual string getLast();//获取上次小数乘法计算的结果

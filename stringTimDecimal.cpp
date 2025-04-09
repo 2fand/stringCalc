@@ -35,9 +35,11 @@ string stringTimDecimal::timDecimal(string str, string stra) {//小数乘法计�
 		timStr.insert(0, "0");
 	}
 	int dotIndex = timStr.size() - dotBackNum;
-	regex correntNumRegex("\\.0*$");
+	regex correntNumRegex("0+$");
 	timStr.insert(dotIndex, ".");
-	timStr = regex_replace(timStr, correntNumRegex, "");
+	if (regex_search(timStr, dotRegex)) {
+		timStr = regex_replace(timStr, correntNumRegex, "");
+	}
 	return this->last = timStr;
 }
 string stringTimDecimal::timDecimalAssign(string& str, string stra) {//小数乘等计算
@@ -73,8 +75,10 @@ string stringTimDecimal::timDecimalAssign(string& str, string stra) {//小数乘
 		timStr.insert(0, "0");
 	}
 	int dotIndex = timStr.size() - dotBackNum;
-	regex correntNumRegex("\\.0*$");
+	regex correntNumRegex("0+$");
 	timStr.insert(dotIndex, ".");
-	timStr = regex_replace(timStr, correntNumRegex, "");
+	if (regex_search(timStr, dotRegex)) {
+		timStr = regex_replace(timStr, correntNumRegex, "");
+	}
 	return this->last = str = timStr;
 }

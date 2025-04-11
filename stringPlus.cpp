@@ -8,14 +8,14 @@ string stringPlus::add(string str, string stra) {//整数加法计算
 	int addNum = 0;
 	int ix = 0;
 	int iy = 0;
-	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
-		if (index < str.size() && '-' != str[index] && ('0' > str[index] || '9' < str[index])) {
-			str.erase(index);
-		}
-		if (index < stra.size() && '-' != stra[index] && ('0' > stra[index] || '9' < stra[index])) {
-			stra.erase(index);
-		}
-	}
+        for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
+                if (index < str.size() && ('-' != str[index] && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {
+                        str.erase(index);
+                }
+                if (index < stra.size() && ('-' != stra[index] && ('1' > stra[index] || '9' < stra[index]) || index > 0 && '-' == stra[index])) {
+                        stra.erase(index);
+                }
+        }
 	if (abs(atoi(stra.c_str())) > abs(atoi(str.c_str()))) {
 		str.swap(stra);
 	}
@@ -62,14 +62,14 @@ string stringPlus::addAssign(string& str, string stra) {//整数加等计算
 	int addNum = 0;
 	int ix = 0;
 	int iy = 0;
-	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
-		if (index < str.size() && '-' != str[index] && ('0' > str[index] || '9' < str[index])) {
-			str.erase(index);
-		}
-		if (index < stra.size() && '-' != stra[index] && ('0' > stra[index] || '9' < stra[index])) {
-			stra.erase(index);
-		}
-	}
+        for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
+                if (index < str.size() && ('-' != str[index] && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {
+                        str.erase(index);
+                }
+                if (index < stra.size() && ('-' != stra[index] && ('1' > stra[index] || '9' < stra[index]) || index > 0 && '-' == stra[index])) {
+                        stra.erase(index);
+                }
+        }
 	if (abs(atoi(stra.c_str())) > abs(atoi(str.c_str()))) {
 		str.swap(stra);
 	}

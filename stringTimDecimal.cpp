@@ -3,14 +3,14 @@ string stringTimDecimal::getLast() {//获取上次小数乘法计算的结果
 	return this->last;
 }
 string stringTimDecimal::timDecimal(string str, string stra) {//小数乘法计算
-	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
-		if (index < str.size() && '-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index])) {
-			str.erase(index);
-		}
-		if (index < stra.size() && '-' != stra[index] && '.' != stra[index] && ('0' > stra[index] || '9' < stra[index])) {
-			stra.erase(index);
-		}
-	}
+        for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
+                if (index < str.size() && ('-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {
+                        str.erase(index);
+                }
+                if (index < stra.size() && ('-' != stra[index] && '.' != stra[index] && ('0' > stra[index] || '9' < stra[index]) || index > 0 && '-' == stra[index])) {
+                        stra.erase(index);
+                }
+        }
 	!str.size() ? str = "0" : "";
 	!stra.size() ? stra = "0" : "";
 	string strDigit = "";
@@ -43,14 +43,14 @@ string stringTimDecimal::timDecimal(string str, string stra) {//小数乘法计�
 	return this->last = timStr;
 }
 string stringTimDecimal::timDecimalAssign(string& str, string stra) {//小数乘等计算
-	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
-		if (index < str.size() && '-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index])) {
-			str.erase(index);
-		}
-		if (index < stra.size() && '-' != stra[index] && '.' != stra[index] && ('0' > stra[index] || '9' < stra[index])) {
-			stra.erase(index);
-		}
-	}
+        for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
+                if (index < str.size() && ('-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {
+                        str.erase(index);
+                }
+                if (index < stra.size() && ('-' != stra[index] && '.' != stra[index] && ('0' > stra[index] || '9' < stra[index]) || index > 0 && '-' == stra[index])) {
+                        stra.erase(index);
+                }
+        }
 	!str.size() ? str = "0" : "";
 	!stra.size() ? stra = "0" : "";
 	string strDigit = "";

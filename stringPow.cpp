@@ -3,14 +3,14 @@ string stringPow::getLast() {//获取上次次方计算后的值
 	return this->last;
 }
 string stringPow::pow(string str, string stra) {//整数次方计算
-	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
-		if (index < str.size() && '-' != str[index] && ('0' > str[index] || '9' < str[index])) {
-			str.erase(index);
-		}
-		if (index < stra.size() && '-' != stra[index] && ('0' > stra[index] || '9' < stra[index])) {
-			stra.erase(index);
-		}
-	}
+        for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
+                if (index < str.size() && ('-' != str[index] && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {
+                        str.erase(index);
+                }
+                if (index < stra.size() && ('-' != stra[index] && ('1' > stra[index] || '9' < stra[index]) || index > 0 && '-' == stra[index])) {
+                        stra.erase(index);
+                }
+        }
 	if (!str.size()) {
 		str = "0";
 	}
@@ -31,14 +31,14 @@ string stringPow::pow(string str, string stra) {//整数次方计算
 	return this->last = powStr;
 }
 string stringPow::powAssign(string& str, string stra) {//整数次等计算
-	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
-		if (index < str.size() && '-' != str[index] && ('0' > str[index] || '9' < str[index])) {
-			str.erase(index);
-		}
-		if (index < stra.size() && '-' != stra[index] && ('0' > stra[index] || '9' < stra[index])) {
-			stra.erase(index);
-		}
-	}
+        for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
+                if (index < str.size() && ('-' != str[index] && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {
+                        str.erase(index);
+                }
+                if (index < stra.size() && ('-' != stra[index] && ('1' > stra[index] || '9' < stra[index]) || index > 0 && '-' == stra[index])) {
+                        stra.erase(index);
+                }
+        }
 	if (!str.size()) {
 		str = "0";
 	}

@@ -4,14 +4,14 @@ string stringPlusDecimal::getLast() {//获取上次小数加法计算的结果
 }
 string stringPlusDecimal::addDecimal(string str, string stra) {//小数加法计算
 	regex dotRegex("\\.");
-	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
-		if (index < str.size() && '-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index])) {
-			str.erase(index);
-		}
-		if (index < stra.size() && '-' != stra[index] && '.' != stra[index] && ('0' > stra[index] || '9' < stra[index])) {
-			stra.erase(index);
-		}
-	}
+        for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
+                if (index < str.size() && ('-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {
+                        str.erase(index);
+                }
+                if (index < stra.size() && ('-' != stra[index] && '.' != stra[index] && ('0' > stra[index] || '9' < stra[index]) || index > 0 && '-' == stra[index])) {
+                        stra.erase(index);
+                }
+        }
 	!str.size() ? str = "0" : "";
 	!stra.size() ? stra = "0" : "";
 	int strDotBackNum = regex_search(str, dotRegex) * (str.size() - str.find('.') - 1);
@@ -33,14 +33,14 @@ string stringPlusDecimal::addDecimal(string str, string stra) {//小数加法计
 }
 string stringPlusDecimal::addDecimalAssign(string& str, string stra) {//小数加等计算
 	regex dotRegex("\\.");
-	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
-		if (index < str.size() && '-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index])) {
-			str.erase(index);
-		}
-		if (index < stra.size() && '-' != stra[index] && '.' != stra[index] && ('0' > stra[index] || '9' < stra[index])) {
-			stra.erase(index);
-		}
-	}
+        for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
+                if (index < str.size() && ('-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {
+                        str.erase(index);
+                }
+                if (index < stra.size() && ('-' != stra[index] && '.' != stra[index] && ('0' > stra[index] || '9' < stra[index]) || index > 0 && '-' == stra[index])) {
+                        stra.erase(index);
+                }
+        }
 	!str.size() ? str = "0" : "";
 	!stra.size() ? stra = "0" : "";
 	int strDotBackNum = regex_search(str, dotRegex) * (str.size() - str.find('.') - 1);

@@ -10,14 +10,14 @@ string stringSub::sub(string str, string stra) {//整数减法计算
 	int id = 0;
 	int toDel = 0;
 	string tempstr;
-	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
-		if (index < str.size() && '-' != str[index] && ('0' > str[index] || '9' < str[index])) {
-			str.erase(index);
-		}
-		if (index < stra.size() && '-' != stra[index] && ('0' > stra[index] || '9' < stra[index])) {
-			stra.erase(index);
-		}
-	}
+        for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
+                if (index < str.size() && ('-' != str[index] && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {
+                        str.erase(index);
+                }
+                if (index < stra.size() && ('-' != stra[index] && ('1' > stra[index] || '9' < stra[index]) || index > 0 && '-' == stra[index])) {
+                        stra.erase(index);
+                }
+        }
 	if ('-' != stra.front()) {
 		stra.insert(0, "-");
 	}
@@ -87,14 +87,14 @@ string stringSub::subAssign(string& str, string stra) {//整数减等计算
 	int id = 0;
 	int toDel = 0;
 	string tempstr;
-	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
-		if (index < str.size() && '-' != str[index] && ('0' > str[index] || '9' < str[index])) {
-			str.erase(index);
-		}
-		if (index < stra.size() && '-' != stra[index] && ('0' > stra[index] || '9' < stra[index])) {
-			stra.erase(index);
-		}
-	}
+        for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
+                if (index < str.size() && ('-' != str[index] && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {
+                        str.erase(index);
+                }
+                if (index < stra.size() && ('-' != stra[index] && ('1' > stra[index] || '9' < stra[index]) || index > 0 && '-' == stra[index])) {
+                        stra.erase(index);
+                }
+        }
 	if ('-' != stra.front()) {
 		stra.insert(0, "-");
 	}

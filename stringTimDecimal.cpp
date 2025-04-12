@@ -25,7 +25,7 @@ string stringTimDecimal::timDecimal(string str, string stra) {//小数乘法计�
 			straDigit.push_back(ch);
 		}
 	}
-	regex dotRegex("\\.");
+	regex dotRegex("\\.?0+$");
 	bool hasDot = regex_search(str, dotRegex);
 	bool hasDota = regex_search(stra, dotRegex);
 	int dotBackNum = hasDot * (str.size() - 1 - str.find('.')) + hasDota * (stra.size() - 1 - stra.find('.'));
@@ -75,7 +75,7 @@ string stringTimDecimal::timDecimalAssign(string& str, string stra) {//小数乘
 		timStr.insert(0, "0");
 	}
 	int dotIndex = timStr.size() - dotBackNum;
-	regex correntNumRegex("0+$");
+	regex correntNumRegex("\\.?0+$");
 	timStr.insert(dotIndex, ".");
 	if (regex_search(timStr, dotRegex)) {
 		timStr = regex_replace(timStr, correntNumRegex, "");

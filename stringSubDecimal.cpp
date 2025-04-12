@@ -1,8 +1,8 @@
 #include "stringSubDecimal.h"
-string stringSubDecimal::getLast() {
+string stringSubDecimal::getLast() {//获取上次小数减法计算的结果
 	return this->last;
 }
-string stringSubDecimal::subDecimal(string str, string stra) {
+string stringSubDecimal::subDecimal(string str, string stra) {//小数减法计算
 	regex dotRegex("\\.");
 	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
 		if (index < str.size() && ('-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {
@@ -38,7 +38,7 @@ string stringSubDecimal::subDecimal(string str, string stra) {
 	timStr.insert(1, ".");
 	return addStr = timDecimal(addStr, timStr);
 }
-string stringSubDecimal::subDecimalAssign(string& str, string stra) {
+string stringSubDecimal::subDecimalAssign(string& str, string stra) {//小数减等计算
 	regex dotRegex("\\.");
 	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
 		if (index < str.size() && ('-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {

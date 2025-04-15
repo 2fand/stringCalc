@@ -2,10 +2,10 @@
 #include "stringSubDecimal.h"
 class stringDivDecimal : protected stringSubDecimal {
 protected:
-	string last;
+	string last;//上次小数除法计算之后的结果
 public:
-	string getLast();
-	string divDecimal(string str, string stra);
-	string divDecimalAssign(string& str, string stra);
+	string getLast();//获取上次小数除法计算之后的结果
+	string divDecimal(string str, string stra);//小数除法计算
+	string divDecimalAssign(string& str, string stra);//小数除等计算
 };
 

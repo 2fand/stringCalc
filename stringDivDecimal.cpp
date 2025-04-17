@@ -21,13 +21,16 @@ string stringDivDecimal::divDecimal(string str, string stra, size_t maxDecimalNu
 	regex dotRegex("\\.");
 	regex delRegex("\\.?0*$");
 	stra = regex_replace(stra, delRegex, "");
+	if ("0" == stra) {
+		cout << "错误：不能除以0" << endl;
+		exit(1);
+	}
 	if (stra.find('.') < stra.size()) {
 		int StraDecimalNum = stra.size() - stra.find('.') - 1;
 		stra = regex_replace(stra, dotRegex, "");
-		int StrDotPos = str.size() > str.find('.') ? (str.size() + StraDecimalNum - 1) : (str.find('.') + StraDecimalNum);
-		str.append(string(StrDotPos >= str.size() ? StrDotPos - str.size() + 1 : 0, '0'));
-		str = regex_replace(str, dotRegex, "");
-		str.insert(StrDotPos, ".");
+		string timNum(StraDecimalNum, '0');
+		timNum.insert(0, "1");
+		timDecimalAssign(str, timNum);
 	}
 	int DecimalNum = 0;
 	string DivStr = "";
@@ -76,13 +79,16 @@ string stringDivDecimal::divDecimalAssign(string& str, string stra, size_t maxDe
 	regex dotRegex("\\.");
 	regex delRegex("\\.?0*$");
 	stra = regex_replace(stra, delRegex, "");
+	if ("0" == stra) {
+		cout << "错误：不能除以0" << endl;
+		exit(1);
+	}
 	if (stra.find('.') < stra.size()) {
 		int StraDecimalNum = stra.size() - stra.find('.') - 1;
 		stra = regex_replace(stra, dotRegex, "");
-		int StrDotPos = str.size() > str.find('.') ? (str.size() + StraDecimalNum - 1) : (str.find('.') + StraDecimalNum);
-		str.append(string(StrDotPos >= str.size() ? StrDotPos - str.size() + 1 : 0, '0'));
-		str = regex_replace(str, dotRegex, "");
-		str.insert(StrDotPos, ".");
+		string timNum(StraDecimalNum, '0');
+		timNum.insert(0, "1");
+		timDecimalAssign(str, timNum);
 	}
 	int DecimalNum = 0;
 	string DivStr = "";

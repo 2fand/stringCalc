@@ -8,11 +8,13 @@ string stringDivDecimal::getLast() {//获取上次小数除法计算之后的结
 	return this->last;
 }
 string stringDivDecimal::divDecimal(string str, string stra, size_t maxDecimalNum = 10) {//小数除法计算
+	bool dotDef = true;
+	bool dotaDef = true;
 	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
-		if (index < str.size() && ('-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {
+		if (index < str.size() && ('-' != str[index] && ('.' == str[index] && (dotDef = !dotDef)) && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {
 			str.erase(index);
 		}
-		if (index < stra.size() && ('-' != stra[index] && '.' != stra[index] && ('0' > stra[index] || '9' < stra[index]) || index > 0 && '-' == stra[index])) {
+		if (index < stra.size() && ('-' != stra[index] && ('.' == stra[index] && (dotaDef = !dotaDef)) && ('0' > stra[index] || '9' < stra[index]) || index > 0 && '-' == stra[index])) {
 			stra.erase(index);
 		}
 	}
@@ -66,11 +68,13 @@ string stringDivDecimal::divDecimal(string str, string stra, size_t maxDecimalNu
 	return this->last = DivStr;
 }
 string stringDivDecimal::divDecimalAssign(string& str, string stra, size_t maxDecimalNum = 10) {//小数除等计算
+	bool dotDef = true;
+	bool dotaDef = true;
 	for (int index = 0; index < (str.size() > stra.size() ? str.size() : stra.size()); index++) {
-		if (index < str.size() && ('-' != str[index] && '.' != str[index] && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {
+		if (index < str.size() && ('-' != str[index] && ('.' == str[index] && (dotDef = !dotDef)) && ('0' > str[index] || '9' < str[index]) || index > 0 && '-' == str[index])) {
 			str.erase(index);
 		}
-		if (index < stra.size() && ('-' != stra[index] && '.' != stra[index] && ('0' > stra[index] || '9' < stra[index]) || index > 0 && '-' == stra[index])) {
+		if (index < stra.size() && ('-' != stra[index] && ('.' == stra[index] && (dotaDef = !dotaDef)) && ('0' > stra[index] || '9' < stra[index]) || index > 0 && '-' == stra[index])) {
 			stra.erase(index);
 		}
 	}

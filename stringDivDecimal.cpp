@@ -34,22 +34,23 @@ string stringDivDecimal::divDecimal(string str, string stra, size_t maxDecimalNu
 		timNum.insert(0, "1");
 		timDecimalAssign(str, timNum);
 	}
-	int DecimalNum = 0;
-	string DivStr = "";
+	int DecimalNum = 1;
+	string DivStr = "0";
 	string DecimalStr = "0";
 	while (atoi(str.c_str()) >= atoi(stra.c_str())) {
 		subDecimalAssign(str, stra);
 		addAssign(DivStr, "1");
 	}
-	while (atoi(str.c_str())) {
-		if (!DecimalNum && maxDecimalNum) {
+	while (atof(str.c_str()) || DecimalNum > maxDecimalNum + 1) {
+		if (1 == DecimalNum && maxDecimalNum) {
 			DivStr.push_back('.');
 		}
 		if (DecimalNum > maxDecimalNum + 1) {
 			int num = DivStr.back() - '0';
+			DivStr.pop_back();
 			if (num >= 5) {
 				string addStr = "1";
-				addStr = regex_replace(addStr, regex("^"), string(DivStr.size() - 1 - DivStr.find('.'), '0');
+				addStr = regex_replace(addStr, regex("^"), string((DivStr.find('.') < DivStr.size()) * (DivStr.size() - 1 - DivStr.find('.')), '0'));
 				addStr.insert(1, ".");
 				addStr.insert(0, "-");
 				subDecimalAssign(DivStr, addStr);
@@ -94,22 +95,23 @@ string stringDivDecimal::divDecimalAssign(string& str, string stra, size_t maxDe
 		timNum.insert(0, "1");
 		timDecimalAssign(str, timNum);
 	}
-	int DecimalNum = 0;
-	string DivStr = "";
+	int DecimalNum = 1;
+	string DivStr = "0";
 	string DecimalStr = "0";
 	while (atoi(str.c_str()) >= atoi(stra.c_str())) {
 		subDecimalAssign(str, stra);
 		addAssign(DivStr, "1");
 	}
-	while (atoi(str.c_str())) {
-		if (!DecimalNum && maxDecimalNum) {
+	while (atof(str.c_str()) || DecimalNum > maxDecimalNum + 1) {
+		if (1 == DecimalNum && maxDecimalNum) {
 			DivStr.push_back('.');
 		}
 		if (DecimalNum > maxDecimalNum + 1) {
 			int num = DivStr.back() - '0';
+			DivStr.pop_back();
 			if (num >= 5) {
 				string addStr = "1";
-				addStr = regex_replace(addStr, regex("^"), string(DivStr.size() - 1 - DivStr.find('.'), '0');
+				addStr = regex_replace(addStr, regex("^"), string((DivStr.find('.') < DivStr.size()) * (DivStr.size() - 1 - DivStr.find('.')), '0'));
 				addStr.insert(1, ".");
 				addStr.insert(0, "-");
 				subDecimalAssign(DivStr, addStr);

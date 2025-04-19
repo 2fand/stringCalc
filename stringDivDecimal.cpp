@@ -18,10 +18,12 @@ string stringDivDecimal::divDecimal(string str, string stra, size_t maxDecimalNu
 			stra.erase(index);
 		}
 	}
-	!str.size() ? str = "0" : "";
-	!stra.size() ? stra = "0" : "";
+	!str.size() || !atof(str.c_str()) ? str = "0" : "";
+	!stra.size() || !atof(str.c_str()) ? stra = "0" : "";
+	bool isNegative = 1 == (('-' == str.front()) + ('-' == stra.front()));
 	regex dotRegex("\\.");
-	regex delRegex("\\.?0*$");
+	regex delRegex("\\.?0*$|^-");
+	str = regex_replace(str, delRegex, "");
 	stra = regex_replace(stra, delRegex, "");
 	if ("0" == stra) {
 		cout << "错误：不能除以0" << endl;
@@ -65,6 +67,9 @@ string stringDivDecimal::divDecimal(string str, string stra, size_t maxDecimalNu
 		}
 		DivStr.append(DecimalStr);
 		DecimalNum++;
+	}
+	if (isNegative) {
+		DivStr.insert(0, "-");
 	}
 	return this->last = DivStr;
 }
@@ -79,10 +84,12 @@ string stringDivDecimal::divDecimalAssign(string& str, string stra, size_t maxDe
 			stra.erase(index);
 		}
 	}
-	!str.size() ? str = "0" : "";
-	!stra.size() ? stra = "0" : "";
+	!str.size() || !atof(str.c_str()) ? str = "0" : "";
+	!stra.size() || !atof(str.c_str()) ? stra = "0" : "";
+	bool isNegative = 1 == (('-' == str.front()) + ('-' == stra.front()));
 	regex dotRegex("\\.");
-	regex delRegex("\\.?0*$");
+	regex delRegex("\\.?0*$|^-");
+	str = regex_replace(str, delRegex, "");
 	stra = regex_replace(stra, delRegex, "");
 	if ("0" == stra) {
 		cout << "错误：不能除以0" << endl;
@@ -126,6 +133,9 @@ string stringDivDecimal::divDecimalAssign(string& str, string stra, size_t maxDe
 		}
 		DivStr.append(DecimalStr);
 		DecimalNum++;
+	}
+	if (isNegative) {
+		DivStr.insert(0, "-");
 	}
 	return this->last = str = DivStr;
 }
